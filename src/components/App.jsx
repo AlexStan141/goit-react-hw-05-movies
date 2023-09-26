@@ -1,16 +1,20 @@
+import { getTrending } from 'apiFunctions';
+import { Routes, Route } from 'react-router-dom';
+import SharedLayout from './SharedLayout/SharedLayout';
+import Home from './Home/Home';
+import Movies from './Movies/Movies';
+
 export const App = () => {
+  console.log(getTrending('day'));
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <Routes>
+      <Route
+        path="/goit-react-hw-05-movies"
+        element={<SharedLayout></SharedLayout>}
+      >
+        <Route index element={<Home></Home>}></Route>
+        <Route path="movies" element={<Movies></Movies>}></Route>
+      </Route>
+    </Routes>
   );
 };
