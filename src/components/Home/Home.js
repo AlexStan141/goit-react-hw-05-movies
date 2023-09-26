@@ -1,6 +1,5 @@
 import React from 'react';
 import { getTrending } from 'apiFunctions';
-import { Link } from 'react-router-dom';
 
 async function getMovies() {
   var movies = await getTrending('day');
