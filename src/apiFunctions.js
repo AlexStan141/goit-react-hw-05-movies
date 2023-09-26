@@ -14,5 +14,5 @@ export async function getTrending(timeWindow) {
     options
   );
   response = await response.json();
-  console.log(response);
+  return response;
 }
