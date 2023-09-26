@@ -1,5 +1,5 @@
 import React from 'react';
-import { Outlet, Link, NavLink } from 'react-router-dom';
+import { Outlet, NavLink } from 'react-router-dom';
 import css from './SharedLayout.module.css';
 import styled from 'styled-components';
 

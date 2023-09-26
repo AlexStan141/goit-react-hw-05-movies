@@ -1,6 +1,4 @@
-import axios from 'axios';
-
-const api_key = '8404239dbd7c51980a8e1af3b6c5f310';
+//const api_key = '8404239dbd7c51980a8e1af3b6c5f310';
 const options = {
   method: 'GET',
   headers: {
