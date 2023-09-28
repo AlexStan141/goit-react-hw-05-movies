@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { getMovieReviews } from 'apiFunctions';
-import css from './Reviews.module.css';
 import { useParams } from 'react-router-dom';
 
 export default function Reviews() {

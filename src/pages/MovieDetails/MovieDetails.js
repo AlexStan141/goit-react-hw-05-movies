@@ -1,4 +1,4 @@
-import { getMovieDetails, getMovieCredits } from '../../apiFunctions';
+import { getMovieDetails } from '../../apiFunctions';
 import React, { useEffect, useState } from 'react';
 import { Outlet, useParams } from 'react-router-dom';
 import css from './MovieDetails.module.css';
@@ -11,7 +11,7 @@ export default function MovieDetails() {
     getMovieDetails(movie_id).then(data => {
       setMovie(data);
     });
-  }, []);
+  }, [movie_id]);
   return (
     <>
       <div className={css.header}>
@@ -19,7 +19,7 @@ export default function MovieDetails() {
           src={
             movie ? 'https://image.tmdb.org/t/p/w500' + movie.poster_path : ''
           }
-          alt="Image not found"
+          alt="Not found"
           width="200"
           height="300"
         ></img>

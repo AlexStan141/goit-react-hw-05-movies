@@ -6,7 +6,7 @@ export default function CastItem({ actor }) {
   return (
     <div className={css.cast}>
       <img
-        alt="Image not found"
+        alt="Not found"
         src={
           actor.profile_path
             ? 'https://image.tmdb.org/t/p/w500' + actor.profile_path
