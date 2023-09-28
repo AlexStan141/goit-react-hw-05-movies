@@ -10,9 +10,37 @@ const options = {
 
 export async function getTrending(timeWindow) {
   var response = await fetch(
-    `https://api.themoviedb.org/3/trending/all/${timeWindow}?language=en-US`,
+    `https://api.themoviedb.org/3/trending/movie/${timeWindow}`,
     options
   );
   response = await response.json();
+  return response;
+}
+
+export async function getMovieDetails(movie_id) {
+  var response = await fetch(
+    `https://api.themoviedb.org/3/movie/${movie_id}`,
+    options
+  );
+  response = await response.json();
+  return response;
+}
+
+export async function getMovieCredits(movie_id) {
+  var response = await fetch(
+    `https://api.themoviedb.org/3/movie/${movie_id}/credits`,
+    options
+  );
+  response = await response.json();
+  return response;
+}
+
+export async function getMovieReviews(movie_id) {
+  var response = await fetch(
+    `https://api.themoviedb.org/3/movie/${movie_id}/reviews`,
+    options
+  );
+  response = await response.json();
+  console.log(response);
   return response;
 }
