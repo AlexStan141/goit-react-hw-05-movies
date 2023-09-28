@@ -10,7 +10,7 @@ export default function Reviews() {
     getMovieReviews(movie_id).then(data => {
       setMovieReviews(data.results);
     });
-  }, []);
+  }, [movie_id]);
   return (
     <ul>
       {movieReviews.length > 0 ? (

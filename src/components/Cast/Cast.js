@@ -10,7 +10,7 @@ export default function Cast() {
     getMovieCredits(movie_id).then(data => {
       setMovieCredits(data.cast);
     });
-  }, []);
+  }, [movie_id]);
   return (
     <>
       {movieCredits ? (

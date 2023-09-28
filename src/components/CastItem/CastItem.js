@@ -11,7 +11,6 @@ export default function CastItem({ actor }) {
             ? 'https://image.tmdb.org/t/p/w500' + actor.profile_path
             : default_profile_path
         }
-        alt="Image not found"
         width="60"
         height="100"
       ></img>
