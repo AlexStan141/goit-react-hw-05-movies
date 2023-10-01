@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/75.a540e417.chunk.js","mappings":"uMAEe,SAASA,IACtB,OAAOC,EAAAA,EAAAA,KAACC,EAAAA,EAAU,GACpB,C","sources":["pages/Home/Home.js"],"sourcesContent":["import MoviesList from 'components/MoviesList/MoviesList';\n\nexport default function Home() {\n  return <MoviesList></MoviesList>;\n}\n"],"names":["Home","_jsx","MoviesList"],"sourceRoot":""}
