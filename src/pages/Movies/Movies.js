@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { lazy } from 'react';
-
-const MoviesList = lazy(() => import('components/MoviesList/MoviesList'));
+import MoviesList from 'components/MoviesList/MoviesList';
 
 export default function Movies() {
   const [intermediateQuery, setIntermediateQuery] = useState(null);

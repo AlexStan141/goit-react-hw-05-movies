@@ -1,6 +1,4 @@
-import { lazy } from 'react';
-
-const MoviesList = lazy(() => import('components/MoviesList/MoviesList'));
+import MoviesList from 'components/MoviesList/MoviesList';
 
 export default function Home() {
   return <MoviesList></MoviesList>;
