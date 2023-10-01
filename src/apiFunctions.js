@@ -41,6 +41,15 @@ export async function getMovieReviews(movie_id) {
     options
   );
   response = await response.json();
+  return response;
+}
+
+export async function getMovies(search) {
+  var response = await fetch(
+    ` https://api.themoviedb.org/3/search/movie?query=${search}`,
+    options
+  );
+  response = await response.json();
   console.log(response);
   return response;
 }

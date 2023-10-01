@@ -1,7 +1,9 @@
-import { getMovieCredits } from 'apiFunctions';
-import CastItem from 'components/CastItem/CastItem';
-import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { getMovieCredits } from 'apiFunctions';
+import { useState, useEffect } from 'react';
+import { lazy } from 'react';
+
+const CastItem = import(() => lazy('components/CastItem/CastItem'));
 
 export default function Cast() {
   const { movie_id } = useParams();

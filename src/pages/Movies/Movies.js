@@ -1,11 +1,35 @@
-import React from 'react';
-import css from './Movies.module.css';
+import { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import { lazy } from 'react';
+
+const MoviesList = lazy(() => import('components/MoviesList/MoviesList'));
 
 export default function Movies() {
+  const [intermediateQuery, setIntermediateQuery] = useState(null);
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const handleChange = evt => {
+    const { name, value } = evt.target;
+    console.log(name);
+    setIntermediateQuery(value);
+  };
+
+  const handleSubmit = evt => {
+    evt.preventDefault();
+    setSearchParams({ searchQuery: intermediateQuery });
+  };
+
   return (
-    <form className={css.form}>
-      <input type="text" name="movie"></input>
-      <button>Search</button>
-    </form>
+    <>
+      <form onSubmit={handleSubmit}>
+        <input type="text" onChange={handleChange}></input>
+        <button type="submit">Search</button>
+      </form>
+      {searchParams.get('searchQuery') ? (
+        <MoviesList searchQuery={searchParams.get('searchQuery')}></MoviesList>
+      ) : (
+        <></>
+      )}
+    </>
   );
 }

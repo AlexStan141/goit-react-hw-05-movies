@@ -1,10 +1,10 @@
-import { getMovieDetails } from '../../apiFunctions';
-import React, { useEffect, useState } from 'react';
-import { Outlet, useParams } from 'react-router-dom';
+import { getMovieDetails } from 'apiFunctions';
+import { useParams, Link, Outlet, useLocation } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import css from './MovieDetails.module.css';
-import { Link } from 'react-router-dom';
 
 export default function MovieDetails() {
+  const location = useLocation();
   const { movie_id } = useParams();
   const [movie, setMovie] = useState(null);
   useEffect(() => {
@@ -14,6 +14,16 @@ export default function MovieDetails() {
   }, [movie_id]);
   return (
     <>
+      <Link
+        to={
+          location.state.searchQuery
+            ? '/goit-react-hw-05-movies/movies?searchQuery=' +
+              location.state.searchQuery
+            : '/goit-react-hw-05-movies'
+        }
+      >
+        {'<- Go back'}
+      </Link>
       <div className={css.header}>
         <img
           src={
@@ -23,6 +33,7 @@ export default function MovieDetails() {
           width="200"
           height="300"
         ></img>
+
         <div className={css.principalInfo}>
           <b>
             {movie
@@ -47,10 +58,18 @@ export default function MovieDetails() {
         <p>Additional information</p>
         <ul>
           <li>
-            <Link to="cast">Cast</Link>
+            <Link to="cast" state={{ searchQuery: location.state.searchQuery }}>
+              Cast
+            </Link>
           </li>
+          <br></br>
           <li>
-            <Link to="reviews">Reviews</Link>
+            <Link
+              to="reviews"
+              state={{ searchQuery: location.state.searchQuery }}
+            >
+              Reviews
+            </Link>
           </li>
         </ul>
       </div>

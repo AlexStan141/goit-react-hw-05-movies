@@ -13,9 +13,9 @@ export default function Reviews() {
   return (
     <ul>
       {movieReviews.length > 0 ? (
-        movieReviews.map(review => {
+        movieReviews.map((review, index) => {
           return (
-            <li>
+            <li key={index}>
               <b>Author: {review.author}</b>
               <p>{review.content}</p>
             </li>
